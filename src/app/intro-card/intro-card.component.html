@@ -1,0 +1,26 @@
+
+    <nz-card style="width:300px;" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+      <nz-card-meta nzTitle={{empName}} nzDescription={{empCompany}} [nzAvatar]="avatarTemplate"></nz-card-meta>
+      <!-- <button nz-button nzType="primary">Request A Quote</button> -->
+      <div class="rates-info"><div class="rates-info-inner"><span><i nz-icon nzType="star" [nzTheme]="'twotone'" [nzTwotoneColor]="'#f8bb05'"></i>{{empRating}} / 5</span><span>Rating</span></div><div class="rates-info-inner"><span>{{empDeliveries}}</span><span>Deliveries</span></div><div class="rates-info-inner"><span>${{empStartRate}}</span><span>Start Rate</span></div></div>
+      <div><i nz-icon nzType="environment" nzTheme="outline"></i>{{empLocation}}</div>
+      <div><i nz-icon nzType="message" nzTheme="outline"></i>{{empLanguages.toString()}}</div>
+      <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">Agile</nz-tag>
+      <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">Scrum</nz-tag>
+      <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">App Development</nz-tag>
+      <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">Big Data</nz-tag>
+      <nz-tag nzMode="closeable" (nzOnClose)="preventDefault($event)">Analytics</nz-tag>
+    </nz-card>
+    <ng-template #avatarTemplate>
+      <nz-avatar [nzSize]="64" nzSrc={{empAvatarUrl}}></nz-avatar>
+    </ng-template>
+     <ng-template #actionSetting>
+      <i nz-icon nzType="setting"></i>
+    </ng-template>
+    <ng-template #actionEdit>
+      <i nz-icon nzType="edit"></i>
+    </ng-template>
+    <ng-template #actionEllipsis>
+      <i nz-icon nzType="ellipsis"></i>
+    </ng-template>
+

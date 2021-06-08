@@ -1,0 +1,32 @@
+
+    <form nz-form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzRequired>Name</nz-form-label>
+        <nz-form-control nzHasFeedback [nzSpan]="12" nzErrorTip="Input is required">
+          <input nz-input formControlName="name" name="name" required />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzRequired>Email</nz-form-label>
+        <nz-form-control nzHasFeedback [nzSpan]="12" nzErrorTip="Email is not valid">
+          <input nz-input formControlName="email" name="email" email required/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzRequired>Offer amount</nz-form-label>
+        <nz-form-control nzHasFeedback [nzSpan]="12" nzErrorTip="Amount: Decimal two places">
+          <input nz-input formControlName="amount" name="amount" pattern="\s*(?=.*[1-9])\d*(?:\.\d{1,2})\s*" required />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5"> Comment </nz-form-label>
+        <nz-form-control [nzSpan]="12" >
+          <textarea formControlName="comment" name="comment" maxlength="120" nz-input rows="2" placeholder="write any thing"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="12" [nzOffset]="5">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Send Offer</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>

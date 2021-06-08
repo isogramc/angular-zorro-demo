@@ -1,0 +1,34 @@
+
+      .login-form {
+        max-width: 300px;
+      }
+
+      .login-form-margin {
+        margin-bottom: 16px;
+      }
+
+      .login-form-forgot {
+        float: right;
+      }
+
+      .login-form-button {
+        width: 100%;
+      }
+
+      .my-flex{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 440px;
+        flex-wrap: wrap;
+      }
+
+      .body-class{
+        width: 100%;
+      }
+
+      .pin-to-bottom-footer{
+        position: absolute;
+        bottom: -90vh;
+      }

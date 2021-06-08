@@ -1,0 +1,20 @@
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+div.rates-info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+div.rates-info.rates-info-inner{
+  display: flex;
+  flex-direction: column;
+}
+
+.company-details{
+  display: flex;
+  flex-direction: row;
+}
