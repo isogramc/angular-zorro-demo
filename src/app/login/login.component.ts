@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngxs/store';
 import {IEmployee} from "../IEmployee";
+import {Employee} from "../models/employee";
+import {AddEmployee} from "../actions/employee.action";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -9,11 +13,27 @@ import {IEmployee} from "../IEmployee";
 })
 export class LoginComponent implements OnInit {
 
+  stateEmployees: Observable<Array<Employee>> = new Observable<Array<Employee>>();
   employees: Array<IEmployee> = new Array<IEmployee>();
 
-  ngOnInit(): void {
+  constructor(private store: Store) {
+
     this.employees = this.getEmployees();
-    console.log(this.employees);
+
+    this.employees.map((employee) =>{
+      this.store.dispatch(new AddEmployee(employee));
+    })
+
+
+
+
+
+  }
+
+  ngOnInit(): void {
+
+    this.stateEmployees = this.store.select(state => state.employees.employees);
+    console.log('state employees', this.stateEmployees);
   }
 
   // service, API,

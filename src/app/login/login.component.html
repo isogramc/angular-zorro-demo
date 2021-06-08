@@ -1,9 +1,9 @@
-<div class="my-flex">
-<div *ngFor="let employee of employees" >
-  <app-intro-card [employeeDetails]="employee"></app-intro-card>
-</div>
-</div>
 
+<div class="my-flex">
+<div *ngFor="let employee of (stateEmployees | async)" >
+    <app-intro-card [employeeDetails]="employee"></app-intro-card>
+</div>
+</div>
 <div class="pin-to-bottom-footer">
   <app-pagination></app-pagination>
 </div>

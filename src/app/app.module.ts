@@ -29,6 +29,7 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { SendOfferFormComponent } from './send-offer-form/send-offer-form.component';
+import {EmployeeState} from "./state/employee.state";
 
 registerLocaleData(en);
 
@@ -61,7 +62,7 @@ registerLocaleData(en);
     /*NgxsModule.forRoot([ZooState], {
       developmentMode: !environment.production
     }),*/
-    NgxsModule.forRoot(),
+    NgxsModule.forRoot([EmployeeState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     ReactiveFormsModule
