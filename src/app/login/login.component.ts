@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.stateEmployees = this.store.select(state => state.employees.employees);
-    console.log('state employees', this.stateEmployees);
   }
 
   // service, API,
