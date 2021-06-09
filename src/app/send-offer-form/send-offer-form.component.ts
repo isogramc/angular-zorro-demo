@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-send-offer-form',
@@ -9,7 +10,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 export class SendOfferFormComponent {
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.validateForm = this.fb.group({
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.email, Validators.required]),
@@ -25,6 +26,9 @@ export class SendOfferFormComponent {
     }
 
     console.log(this.validateForm.value);
+    if(this.validateForm.value!=={}) {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {}

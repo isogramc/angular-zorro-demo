@@ -1,7 +1,6 @@
 
     <nz-card style="width:300px;" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
       <nz-card-meta nzTitle={{empName}} nzDescription={{empCompany}} [nzAvatar]="avatarTemplate"></nz-card-meta>
-      <!-- <button nz-button nzType="primary">Request A Quote</button> -->
       <div class="rates-info"><div class="rates-info-inner"><span><i nz-icon nzType="star" [nzTheme]="'twotone'" [nzTwotoneColor]="'#f8bb05'"></i>{{empRating}} / 5</span><span>Rating</span></div><div class="rates-info-inner"><span>{{empDeliveries}}</span><span>Deliveries</span></div><div class="rates-info-inner"><span>${{empStartRate}}</span><span>Start Rate</span></div></div>
       <div><i nz-icon nzType="environment" nzTheme="outline"></i>{{empLocation}}</div>
       <div><i nz-icon nzType="message" nzTheme="outline"></i>{{empLanguages.toString()}}</div>
@@ -18,7 +17,9 @@
       <i nz-icon nzType="setting"></i>
     </ng-template>
     <ng-template #actionEdit>
-      <i nz-icon nzType="edit"></i>
+      <a [routerLink]="['/send-offer']" [queryParams]="{debug: true}" queryParamsHandling="merge">
+        <i nz-icon nzType="edit"></i>
+      </a>
     </ng-template>
     <ng-template #actionEllipsis>
       <i nz-icon nzType="ellipsis"></i>

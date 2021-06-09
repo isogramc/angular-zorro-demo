@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Store } from '@ngxs/store';
 import {IEmployee} from "../IEmployee";
 import {Employee} from "../redux/models/employee";
 import {AddEmployee} from "../redux/actions/employee.action";
 import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,10 @@ import {Observable} from "rxjs";
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild('searchbox', { static: false })
+  searchbox?: ElementRef<HTMLElement>;
+
+  employeeName = '';
   stateEmployees: Observable<Array<Employee>> = new Observable<Array<Employee>>();
   employees: Array<IEmployee> = new Array<IEmployee>();
 
@@ -25,8 +29,14 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
+
   ngOnInit(): void {
     this.stateEmployees = this.store.select(state => state.employees.employees);
+  }
+
+  findByName(event: any){
+    this.employeeName = event.target.value;
   }
 
   // service, API,

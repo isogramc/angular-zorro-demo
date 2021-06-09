@@ -1,6 +1,6 @@
-
+<div> <input #searchbox class="search-box" (input)="findByName($event)" placeholder="Looking for someone?" required></div>
 <div class="my-flex">
-<div *ngFor="let employee of (stateEmployees | async)" >
+<div *ngFor="let employee of (stateEmployees | async | UsersFilterPipe : employeeName)" >
     <app-intro-card [employeeDetails]="employee"></app-intro-card>
 </div>
 </div>
