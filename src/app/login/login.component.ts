@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import {IEmployee} from "../IEmployee";
-import {Employee} from "../models/employee";
-import {AddEmployee} from "../actions/employee.action";
+import {Employee} from "../redux/models/employee";
+import {AddEmployee} from "../redux/actions/employee.action";
 import {Observable} from "rxjs";
 
 @Component({
@@ -23,15 +23,9 @@ export class LoginComponent implements OnInit {
     this.employees.map((employee) =>{
       this.store.dispatch(new AddEmployee(employee));
     })
-
-
-
-
-
   }
 
   ngOnInit(): void {
-
     this.stateEmployees = this.store.select(state => state.employees.employees);
   }
 
