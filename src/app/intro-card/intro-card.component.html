@@ -1,5 +1,5 @@
 
-    <nz-card style="width:300px;" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+    <nz-card style="width:300px; margin: 15px auto;" [nzActions]="[actionSetting, actionEdit, actionEllipsis]" >
       <nz-card-meta nzTitle={{empName}} nzDescription={{empCompany}} [nzAvatar]="avatarTemplate"></nz-card-meta>
       <div class="rates-info"><div class="rates-info-inner"><span><i nz-icon nzType="star" [nzTheme]="'twotone'" [nzTwotoneColor]="'#f8bb05'"></i>{{empRating}} / 5</span><span>Rating</span></div><div class="rates-info-inner"><span>{{empDeliveries}}</span><span>Deliveries</span></div><div class="rates-info-inner"><span>${{empStartRate}}</span><span>Start Rate</span></div></div>
       <div><i nz-icon nzType="environment" nzTheme="outline"></i>{{empLocation}}</div>
