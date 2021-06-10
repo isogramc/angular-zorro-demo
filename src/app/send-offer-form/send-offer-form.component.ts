@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-send-offer-form',
@@ -9,9 +9,18 @@ import {Router} from "@angular/router";
 })
 export class SendOfferFormComponent {
   validateForm!: FormGroup;
+  empId: string = "";
+  empName: string = "";
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
+
+    route.queryParams.subscribe(params => {
+      this.empId = params['empId'];
+      this.empName = params['empName'];
+    });
+
     this.validateForm = this.fb.group({
+      id:new FormControl(this.empId + ' ' + this.empName),
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.email, Validators.required]),
       amount: new FormControl('', Validators.required),
@@ -25,8 +34,9 @@ export class SendOfferFormComponent {
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
-    console.log(this.validateForm.value);
     if(this.validateForm.value!=={}) {
+
+      console.log(this.validateForm.value);
       this.router.navigate(['/login']);
     }
   }

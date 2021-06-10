@@ -61,10 +61,7 @@ registerLocaleData(en);
     NzTagModule,
     NzIconModule,
     NzAutocompleteModule,
-    /*NgxsModule.forRoot([ZooState], {
-      developmentMode: !environment.production
-    }),*/
-    NgxsModule.forRoot([EmployeeState]),
+    NgxsModule.forRoot([EmployeeState]), // developmentMode: !environment.production
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     ReactiveFormsModule

@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { Store } from '@ngxs/store';
+import {Store} from '@ngxs/store';
 import {IEmployee} from "../IEmployee";
 import {Employee} from "../redux/models/employee";
 import {AddEmployee} from "../redux/actions/employee.action";
@@ -24,12 +24,10 @@ export class LoginComponent implements OnInit {
 
     this.employees = this.getEmployees();
 
-    this.employees.map((employee) =>{
+    this.employees.map((employee) => {
       this.store.dispatch(new AddEmployee(employee));
     })
   }
-
-
 
   ngOnInit(): void {
     this.stateEmployees = this.store.select(state => state.employees.employees);

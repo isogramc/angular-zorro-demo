@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-intro-card',
@@ -22,7 +23,7 @@ export class IntroCardComponent {
   empLanguages: Array<String> = ["English", "Russian", "Spanish"];
   empSkills: Object = [{item: "Agile"}, {item: "Scrum"},{item: "App Development"},{item: "Big Data"},{item: "Analytics"}];
 
-  constructor(private sanitization:DomSanitizer) {
+  constructor(private sanitization:DomSanitizer, private router: Router ) {
   }
 
   ngOnInit(): void {
@@ -40,7 +41,16 @@ export class IntroCardComponent {
     this.empSkills = this.employeeDetails.empSkills;
   }
 
-  preventDefault(e: Event): void {
+  createNew(id: number, name: string): void{
+    const navigateToNewWithUser: NavigationExtras = {
+      fragment: 'new',
+      queryParams: {'empId': id, 'empName': name}
+    };
+
+    this.router.navigate(['/send-offer'], navigateToNewWithUser);
+  }
+
+  preventDefault (e: Event): void {
     e.preventDefault();
     e.stopPropagation();
     console.log('tag can not be closed.');

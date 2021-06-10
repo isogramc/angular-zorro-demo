@@ -17,9 +17,10 @@
       <i nz-icon nzType="setting"></i>
     </ng-template>
     <ng-template #actionEdit>
-      <a [routerLink]="['/send-offer']" [queryParams]="{debug: true}" queryParamsHandling="merge">
+      <!--<a [routerLink]="['/send-offer']" [queryParams]="{debug: true}" queryParamsHandling="merge">
         <i nz-icon nzType="edit"></i>
-      </a>
+      </a>-->
+      <div (click)="createNew(empId, empName)"><i nz-icon nzType="edit"></i></div>
     </ng-template>
     <ng-template #actionEllipsis>
       <i nz-icon nzType="ellipsis"></i>
